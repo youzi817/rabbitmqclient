@@ -68,7 +68,7 @@ public class RabbitMqClient
 
 	public void registReceiver(RabbitMqReceiver receiver) throws IOException
 	{
-		receiver.getChannel().basicConsume(receiver.getQueue(), false, receiver);
+		receiver.getChannel().basicConsume(receiver.getQueue(), receiver.isAutoAck(), receiver);
 	}
 
 	public void close() throws IOException, TimeoutException
